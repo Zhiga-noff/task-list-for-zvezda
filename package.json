@@ -41,8 +41,6 @@
     },
     "dependencies": {
         "@babel/polyfill": "^7.12.1",
-        "jquery": "^3.6.4",
-        "normalize.css": "^8.0.1",
-        "react-router-dom": "^6.15.0"
+        "normalize.css": "^8.0.1"
     }
 }

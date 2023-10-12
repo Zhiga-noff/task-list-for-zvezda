@@ -186,14 +186,6 @@ module.exports = {
           from: path.resolve(__dirname, 'src', 'img'),
           to: path.resolve(__dirname, 'dist/img'),
         },
-        {
-          from: path.resolve(__dirname, 'src', 'phpmailer'), // Копируем папку phpmailer
-          to: path.resolve(__dirname, 'dist/phpmailer'),
-        },
-        {
-          from: path.resolve(__dirname, 'src', 'sendmail.php'), // Копируем файл sendmail.php
-          to: path.resolve(__dirname, 'dist'),
-        },
       ],
     }),
     new MiniCssExtractPlugin({
