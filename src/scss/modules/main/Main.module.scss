@@ -15,6 +15,14 @@
     z-index: 2;
     }
 
+.lineGrey {
+    margin: 30px auto;
+    height: 1px;
+    width: 70%;
+
+    background-color: $grey;
+    }
+
 .container {
     height: 100%;
     background-color: white;
