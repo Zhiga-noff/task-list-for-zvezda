@@ -5,8 +5,12 @@ export const taskReducer = (state, action) => {
         case 'ADD_NEW_TASK':
             localStorage.setItem('task-list', JSON.stringify([payload, ...state]));
             return [payload, ...state];
+        case 'COMPLETED_TASK':
+            const updateTaskList = state.filter(({ id }) => id !== payload);
+            localStorage.setItem('task-list', JSON.stringify(updateTaskList));
+            return updateTaskList;
         case 'SET_TASK_LIST':
-            let newTaskList = localStorage.getItem('task-list');
+            const newTaskList = localStorage.getItem('task-list');
             return JSON.parse(newTaskList) || [];
         default:
             return state;

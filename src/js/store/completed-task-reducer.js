@@ -3,8 +3,8 @@ export const completedTaskReducer = (state, action) => {
 
     switch (type) {
         case 'ADD_NEW_TASK':
-            localStorage.setItem('completed-task-list', JSON.stringify([payload, ...state]));
-            return [payload, ...state];
+            localStorage.setItem('completed-task-list', JSON.stringify([{ ...payload, isDone: true }, ...state]));
+            return [{ ...payload, isDone: true }, ...state];
         case 'SET_TASK_LIST':
             let newCompletedTaskList = localStorage.getItem('completed-task-list');
             return JSON.parse(newCompletedTaskList) || [];
