@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import style from '../../../scss/modules/main/Main.module.scss';
-import { TaskField, TaskToolBar } from './components';
+import { TaskToolBar } from './components';
 
 export const Main = () => {
     const [taskList, setTaskList] = useState([]);
 
     useEffect(() => {
-        setTaskList(localStorage.getItem('task-list'))
-    })
+        setTaskList(localStorage.getItem('task-list'));
+    });
 
     return (
         <main className={style.main}>
