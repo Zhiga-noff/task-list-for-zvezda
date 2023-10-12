@@ -9,7 +9,7 @@ import style from '../../../../../../scss/modules/main/TaskField.module.scss';
 import { TaskListContext } from '../../../../../context/TaskListContext';
 import { CompletedTasks } from '../../../../../context/CompletedTasks';
 
-export const IconsButton = ({ itemData }) => {
+export const IconsButton = ({ itemData, index }) => {
     const { dispatchTask } = useContext(TaskListContext);
     const { dispatchCompleted } = useContext(CompletedTasks);
 
@@ -23,13 +23,24 @@ export const IconsButton = ({ itemData }) => {
         dispatchCompleted({ type: 'RETURN_TASK', payload: itemData.id });
     };
 
+    const moveUpCompletedTask = () => {
+        dispatchCompleted({ type: 'MOVE_UP_COMPLETED_TASK', payload: index });
+    };
+
+    const moveDownCompletedTask = () => {
+        dispatchCompleted({ type: 'MOVE_DOWN_COMPLETED_TASK', payload: index });
+    };
+
 
     return (
         <div>
             {
                 itemData.isDone ? <>
-                    <button className={style.button}><img src={upImage} alt='' /></button>
-                    <button className={style.button}><img src={downImage} alt='' /></button>
+                    <button className={style.button}
+
+                            onClick={moveUpCompletedTask}><img src={upImage} alt='' /></button>
+                    <button className={style.button} onClick={moveDownCompletedTask}><img src={downImage} alt='' />
+                    </button>
                     <button className={style.button} onClick={returnToTaskList}><img src={returnImage} alt='' />
                     </button>
 

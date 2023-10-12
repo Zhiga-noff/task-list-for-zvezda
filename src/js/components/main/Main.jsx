@@ -17,7 +17,7 @@ export const Main = () => {
                 </ul>
                 <div className={style.lineGrey} />
                 <ul className={style.taskList}>
-                    {completedList.map((item) => <TaskField key={item?.id} itemData={item} />)}
+                    {completedList.map((item, index) => <TaskField key={item?.id} itemData={item} index={index} />)}
                 </ul>
             </div>
 

@@ -7,7 +7,7 @@ import { TaskListContext } from '../../../../context/TaskListContext';
 
 export const TaskToolBar = () => {
 
-    const choiceIsActive = useContext(ChoiceIsActiveContext);
+    const { choiceIsActive } = useContext(ChoiceIsActiveContext);
 
     return (
         <div className={style.taskToolBar}>

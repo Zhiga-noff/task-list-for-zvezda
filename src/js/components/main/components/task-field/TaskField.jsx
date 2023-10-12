@@ -3,12 +3,12 @@ import { SectionLeftToolAndTask } from '../section-left/SectionLeftToolAndTask';
 import { IconsButton } from './icons-button/IconsButton';
 import style from '../../../../../scss/modules/main/TaskField.module.scss';
 
-export const TaskField = ({ itemData }) => {
+export const TaskField = ({ itemData, index }) => {
 
     return (
         <li className={` ${style.task} ${itemData.isDone ? style.completedTask : ''}`}>
             <SectionLeftToolAndTask>{itemData.title}</SectionLeftToolAndTask>
-            <IconsButton itemData={itemData} />
+            <IconsButton itemData={itemData} index={index} />
 
         </li>
     );
