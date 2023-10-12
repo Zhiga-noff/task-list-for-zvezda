@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import style from '../../../../../scss/modules/main/TaskToolBar.module.scss';
+import { ToolForm } from '../tool-form/ToolForm';
+import { SectionLeftToolAndTask } from '../section-left/SectionLeftToolAndTask';
 
 export const TaskToolBar = () => {
     const [choiceIsActive, setChoiceIsActive] = useState(false);
-    console.log(choiceIsActive);
 
     const reversChoiceIsActiveFlag = () => {
         setChoiceIsActive(pre => !pre);
@@ -11,13 +12,7 @@ export const TaskToolBar = () => {
 
     return (
         <div className={style.taskToolBar}>
-            <div className={style.section}>
-                <div className={style.checkboxContainer}>{choiceIsActive ? <></> : ''}</div>
-                <form action=''>
-                    <input type='text' placeholder={'Новая задача'} />
-                    <button className={'button button-turquoise'}>Добавить +</button>
-                </form>
-            </div>
+            <SectionLeftToolAndTask choiceIsActive={choiceIsActive}><TaskToolBar /></SectionLeftToolAndTask>
 
             <div className={style.section}>
                 <button className={`${style.button} button button-orange`}
