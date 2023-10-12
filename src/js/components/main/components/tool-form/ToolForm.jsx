@@ -4,7 +4,7 @@ import { returnNewTaskObject } from '../../../../utils';
 
 export const ToolForm = () => {
     const [valueNewTask, setValueNewTask] = useState('');
-    const { dispatch } = useContext(TaskListContext);
+    const { dispatchTask } = useContext(TaskListContext);
 
 
     const onChangeNewTask = ({ target }) => {
@@ -14,7 +14,7 @@ export const ToolForm = () => {
     const onSubmitForm = (event) => {
         event.preventDefault();
         let newTask = returnNewTaskObject(valueNewTask);
-        dispatch({ type: 'ADD_NEW_TASK', payload: newTask });
+        dispatchTask({ type: 'ADD_NEW_TASK', payload: newTask });
 
         setValueNewTask('');
     };

@@ -1,21 +1,23 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { Header, Main, SideBar } from './components';
 import { WrapperContext } from './context/WrapperContext';
-import { taskReducer } from './store/task-reducer';
+import { choiceIsActiveReducer, taskReducer } from './store';
 
 export const App = () => {
-    const [taskList, dispatch] = useReducer(taskReducer, []);
+    const [taskList, dispatchTask] = useReducer(taskReducer, []);
+    const [dispatchChoice] = useReducer(choiceIsActiveReducer, []);
 
 
     useEffect(() => {
         let taskList = localStorage.getItem('task-list');
         console.log(taskList);
-        dispatch({ action: 'SET_TASK_LIST', payload: taskList });
+        dispatchTask({ action: 'SET_TASK_LIST', payload: taskList });
     }, []);
 
 
     return (
-        <WrapperContext taskListValue={taskList} choiceIsActiveValue={'choiceIsActiveValue'} dispatch={dispatch}>
+        <WrapperContext taskListValue={taskList} choiceIsActiveValue={'choiceIsActiveValue'} dispatchTask={dispatchTask}
+                        dispatchChoice={dispatchChoice}>
             <Header />
             <div className='container'>
                 <SideBar />
