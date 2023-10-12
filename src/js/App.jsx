@@ -1,7 +1,11 @@
 import React, { useEffect, useReducer } from 'react';
 import { Header, Main, SideBar } from './components';
 import { WrapperContext } from './context/WrapperContext';
-import { choiceIsActiveReducer, taskReducer, completedTaskReducer } from './store';
+import {
+    choiceIsActiveReducer,
+    taskReducer,
+    completedTaskReducer,
+} from './store/reducers';
 
 export const App = () => {
     const [taskList, dispatchTask] = useReducer(taskReducer, []);

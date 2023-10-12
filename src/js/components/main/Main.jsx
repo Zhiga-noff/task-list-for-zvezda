@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import style from '../../../scss/modules/main/Main.module.scss';
 import { TaskListRender, TaskToolBar } from './components';
 import { TaskListContext } from '../../context/TaskListContext';

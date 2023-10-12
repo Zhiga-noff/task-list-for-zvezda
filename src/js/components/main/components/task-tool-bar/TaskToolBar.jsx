@@ -5,6 +5,7 @@ import { ChoiceIsActiveContext } from '../../../../context/ChoiceIsActiveContext
 import { TaskListContext } from '../../../../context/TaskListContext';
 import { CompletedTasks } from '../../../../context/CompletedTasks';
 import { returnCompletedTaskList } from '../../../../utils/return-completed-task-list';
+import { choiceType, completeType } from '../../../../store/type';
 
 export const TaskToolBar = ({ checkedId }) => {
     const { taskListValue, dispatchTask } = useContext(TaskListContext);
@@ -12,7 +13,7 @@ export const TaskToolBar = ({ checkedId }) => {
     const { choiceIsActiveValue, dispatchChoice } = useContext(ChoiceIsActiveContext);
 
     const onClickChoiceButton = () => {
-        dispatchChoice({ type: 'REVERS_CHOICE_FLAG' });
+        dispatchChoice({ type: choiceType.REVERS_CHOICE_FLAG });
     };
 
 
@@ -20,7 +21,7 @@ export const TaskToolBar = ({ checkedId }) => {
         dispatchTask({ type: 'MASS_COMPLETED_TASKS', payload: checkedId });
         const completedTaskList = returnCompletedTaskList(taskListValue, checkedId);
         dispatchCompleted({
-            type: 'MASS_ADD_COMPLETED_TASKS',
+            type: completeType.MASS_ADD_COMPLETED_TASKS,
             payload: completedTaskList,
         });
     };
@@ -28,14 +29,17 @@ export const TaskToolBar = ({ checkedId }) => {
     return (
         <div className={style.taskToolBar}>
             <div className={style.section}>
-                <div className={style.checkboxContainer}>{choiceIsActiveValue ? <></> : ''}</div>
+                <div
+                    className={style.checkboxContainer}>{choiceIsActiveValue ? <></> : ''}</div>
                 <ToolForm />
             </div>
 
             <div className={style.section}>
-                <button className={`${style.button} button button-orange`} onClick={onClickChoiceButton}
+                <button className={`${style.button} button button-orange`}
+                        onClick={onClickChoiceButton}
                 >{choiceIsActiveValue ? 'Отменить выбор' : 'Выбрать задачи'}</button>
-                <button className={`${style.button} button button-blue`} disabled={!choiceIsActiveValue}
+                <button className={`${style.button} button button-blue`}
+                        disabled={!choiceIsActiveValue}
                         onClick={onClickCompletedButton}>Завершить
                 </button>
             </div>

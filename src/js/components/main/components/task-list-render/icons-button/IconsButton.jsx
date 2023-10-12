@@ -8,27 +8,27 @@ import returnImage from '../../../../../../img/return.svg';
 import style from '../../../../../../scss/modules/main/TaskField.module.scss';
 import { TaskListContext } from '../../../../../context/TaskListContext';
 import { CompletedTasks } from '../../../../../context/CompletedTasks';
+import { completeType, taskListType } from '../../../../../store/type';
 
 export const IconsButton = ({ itemData, index }) => {
     const { dispatchTask } = useContext(TaskListContext);
     const { dispatchCompleted } = useContext(CompletedTasks);
 
     const completedTaskOnClick = () => {
-        dispatchTask({ type: 'COMPLETED_TASK', payload: itemData.id });
-        dispatchCompleted({ type: 'ADD_NEW_TASK', payload: itemData });
+        dispatchTask({ type: taskListType.COMPLETED_TASK, payload: itemData.id });
+        dispatchCompleted({ type: completeType.ADD_NEW_TASK, payload: itemData });
     };
 
     const returnToTaskList = () => {
-        dispatchTask({ type: 'ADD_NEW_TASK', payload: itemData });
-        dispatchCompleted({ type: 'RETURN_TASK', payload: itemData.id });
+        dispatchTask({ type: taskListType.ADD_NEW_TASK, payload: itemData });
+        dispatchCompleted({ type: completeType.RETURN_TASK, payload: itemData.id });
     };
 
-    const moveUpCompletedTask = () => {
-        dispatchCompleted({ type: 'MOVE_UP_COMPLETED_TASK', payload: index });
-    };
-
-    const moveDownCompletedTask = () => {
-        dispatchCompleted({ type: 'MOVE_DOWN_COMPLETED_TASK', payload: index });
+    const moveCompleteTask = (type) => {
+        dispatchCompleted({
+            type: type,
+            payload: index,
+        });
     };
 
 
@@ -37,11 +37,16 @@ export const IconsButton = ({ itemData, index }) => {
             {
                 itemData.isDone ? <>
                     <button className={style.button}
-
-                            onClick={moveUpCompletedTask}><img src={upImage} alt='' /></button>
-                    <button className={style.button} onClick={moveDownCompletedTask}><img src={downImage} alt='' />
+                            onClick={() => moveCompleteTask(completeType.MOVE_UP_COMPLETED_TASK)}>
+                        <img src={upImage} alt='' />
                     </button>
-                    <button className={style.button} onClick={returnToTaskList}><img src={returnImage} alt='' />
+                    <button className={style.button}
+                            onClick={() => moveCompleteTask(completeType.MOVE_DOWN_COMPLETED_TASK)}>
+                        <img
+                            src={downImage} alt='' />
+                    </button>
+                    <button className={style.button} onClick={returnToTaskList}><img
+                        src={returnImage} alt='' />
                     </button>
 
                 </> : <button className={style.button} onClick={completedTaskOnClick

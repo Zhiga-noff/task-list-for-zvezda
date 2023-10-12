@@ -1,21 +1,26 @@
+import { completeType } from '../type';
+
 export const completedTaskReducer = (state, action) => {
     const { type, payload } = action;
     let selectTask = state[payload];
 
     switch (type) {
-        case 'ADD_NEW_TASK':
-            localStorage.setItem('completed-task-list', JSON.stringify([{ ...payload, isDone: true }, ...state]));
+        case completeType.ADD_NEW_TASK:
+            localStorage.setItem('completed-task-list', JSON.stringify([{
+                ...payload,
+                isDone: true,
+            }, ...state]));
             return [{ ...payload, isDone: true }, ...state];
 
-        case 'MASS_ADD_COMPLETED_TASKS':
+        case completeType.MASS_ADD_COMPLETED_TASKS:
             localStorage.setItem('completed-task-list', JSON.stringify([...payload, ...state]));
             return [...payload, ...state];
-        case 'RETURN_TASK':
+        case completeType.RETURN_TASK:
             const updateTaskList = state.filter(({ id }) => id !== payload);
             localStorage.setItem('completed-task-list', JSON.stringify(updateTaskList));
             return updateTaskList;
 
-        case 'MOVE_UP_COMPLETED_TASK':
+        case completeType.MOVE_UP_COMPLETED_TASK:
             let prevTask = state[payload - 1];
 
             const moveUpList = state.map((item, index) => {
@@ -36,7 +41,7 @@ export const completedTaskReducer = (state, action) => {
             localStorage.setItem('completed-task-list', JSON.stringify(moveUpList));
             return moveUpList;
 
-        case 'MOVE_DOWN_COMPLETED_TASK':
+        case completeType.MOVE_DOWN_COMPLETED_TASK:
             let nextTask = state[payload + 1];
 
             const moveDownList = state.map((item, index, array) => {
@@ -57,7 +62,7 @@ export const completedTaskReducer = (state, action) => {
             localStorage.setItem('completed-task-list', JSON.stringify(moveDownList));
             return moveDownList;
 
-        case 'SET_TASK_LIST':
+        case completeType.SET_TASK_LIST:
             let newCompletedTaskList = localStorage.getItem('completed-task-list');
             return JSON.parse(newCompletedTaskList) || [];
         default:
