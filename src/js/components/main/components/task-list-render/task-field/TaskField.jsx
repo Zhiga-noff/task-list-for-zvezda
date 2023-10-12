@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { IconsButton } from './icons-button/IconsButton';
-import style from '../../../../../scss/modules/main/TaskField.module.scss';
-import { ChoiceIsActiveContext } from '../../../../context/ChoiceIsActiveContext';
+import { IconsButton } from '../icons-button/IconsButton';
+import style from '../../../../../../scss/modules/main/TaskField.module.scss';
+import { ChoiceIsActiveContext } from '../../../../../context/ChoiceIsActiveContext';
 
 export const TaskField = ({ itemData, index, setCheckedId }) => {
     const [isChecked, setIsChecked] = useState(false);
@@ -36,7 +36,8 @@ export const TaskField = ({ itemData, index, setCheckedId }) => {
 
                 {itemData.title}
             </label>
-            {isHovered ? <IconsButton itemData={itemData} index={index} /> : <div className={style.stub}></div>}
+            {isHovered ? <IconsButton itemData={itemData} index={index} /> :
+                <div className={style.stub}></div>}
 
 
         </li>

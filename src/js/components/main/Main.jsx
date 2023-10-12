@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import style from '../../../scss/modules/main/Main.module.scss';
-import { TaskField, TaskToolBar } from './components';
+import { TaskListRender, TaskToolBar } from './components';
 import { TaskListContext } from '../../context/TaskListContext';
 import { CompletedTasks } from '../../context/CompletedTasks';
 
@@ -15,19 +15,12 @@ export const Main = () => {
             <div className={style.line} />
             <div className={style.container}>
                 <TaskToolBar checkedId={checkedId} />
-                <ul className={style.taskList}>
-                    {taskList.length ? taskList.map((item, index) => <TaskField key={item?.id} itemData={item}
-                                                                                index={index}
-                                                                                setCheckedId={setCheckedId}
-                    />) : <p className={style.stub}>Добавтье задачу</p>}
-                </ul>
+                <TaskListRender renderList={taskList} setCheckedId={setCheckedId}
+                                textContent={'Добавтье задачу'} />
+
                 <div className={style.lineGrey} />
-                <ul className={style.taskList}>
-                    {completedList.length ? completedList.map((item, index) => <TaskField key={item?.id} itemData={item}
-                                                                                          index={index}
-                                                                                          setCheckedId={setCheckedId} />) :
-                        <p className={style.stub}>Нет завершенных задач</p>}
-                </ul>
+                <TaskListRender renderList={completedList} setCheckedId={setCheckedId}
+                                textContent={'Нет завершенных задач'} />
             </div>
 
         </main>
