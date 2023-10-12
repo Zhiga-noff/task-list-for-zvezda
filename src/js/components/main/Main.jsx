@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import style from '../../../scss/modules/main/Main.module.scss';
 import { TaskToolBar } from './components';
+import { TaskListContext } from '../../context/TaskListContext';
 
 export const Main = () => {
-    const [taskList, setTaskList] = useState([]);
-
-    useEffect(() => {
-        setTaskList(localStorage.getItem('task-list'));
-    });
-
+    const { taskListValue: taskList } = useContext(TaskListContext);
+    console.log(taskList);
     return (
         <main className={style.main}>
             <div className={style.line} />
             <div className={style.container}>
                 <TaskToolBar />
                 <ul className={style.taskList}>
-                    {taskList}
+                    {/*{taskList}*/}
                     {/*{taskList.map((item) => <TaskField key={item?.id} itemData={item} />)}*/}
                 </ul>
             </div>

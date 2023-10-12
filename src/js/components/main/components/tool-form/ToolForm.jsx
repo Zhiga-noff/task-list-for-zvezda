@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { TaskListContext } from '../../../../context/TaskListContext';
+import { returnNewTaskObject } from '../../../../utils';
 
 export const ToolForm = () => {
     const [valueNewTask, setValueNewTask] = useState('');
+    const { dispatch } = useContext(TaskListContext);
+
 
     const onChangeNewTask = ({ target }) => {
         setValueNewTask(target.value);
@@ -9,7 +13,9 @@ export const ToolForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        localStorage.setItem('task-list', valueNewTask);
+        let newTask = returnNewTaskObject(valueNewTask);
+        dispatch({ type: 'ADD_NEW_TASK', payload: newTask });
+
         setValueNewTask('');
     };
 
