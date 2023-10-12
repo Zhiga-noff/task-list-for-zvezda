@@ -5,6 +5,7 @@ import { ChoiceIsActiveContext } from '../../../../context/ChoiceIsActiveContext
 
 export const TaskField = ({ itemData, index, setCheckedId }) => {
     const [isChecked, setIsChecked] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
     const { choiceIsActiveValue } = useContext(ChoiceIsActiveContext);
 
     useEffect(() => {
@@ -25,7 +26,9 @@ export const TaskField = ({ itemData, index, setCheckedId }) => {
 
 
     return (
-        <li className={` ${style.task} ${itemData.isDone ? style.completedTask : ''}`}>
+        <li className={` ${style.task} ${itemData.isDone ? style.completedTask : ''}`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}>
             <label>
                 {choiceIsActiveValue && !itemData.isDone ?
                     <input type='checkbox' name={itemData.title} checked={isChecked}
@@ -33,7 +36,8 @@ export const TaskField = ({ itemData, index, setCheckedId }) => {
 
                 {itemData.title}
             </label>
-            <IconsButton itemData={itemData} index={index} />
+            {isHovered ? <IconsButton itemData={itemData} index={index} /> : <></>}
+
 
         </li>
     );

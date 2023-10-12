@@ -4,9 +4,12 @@ import { ToolForm } from '../tool-form/ToolForm';
 import { SectionLeftToolAndTask } from '../section-left/SectionLeftToolAndTask';
 import { ChoiceIsActiveContext } from '../../../../context/ChoiceIsActiveContext';
 import { TaskListContext } from '../../../../context/TaskListContext';
+import { CompletedTasks } from '../../../../context/CompletedTasks';
+import { returnCompletedTaskList } from '../../../../utils/return-completed-task-list';
 
 export const TaskToolBar = ({ checkedId }) => {
-    const { dispatchTask } = useContext(TaskListContext);
+    const { taskListValue, dispatchTask } = useContext(TaskListContext);
+    const { dispatchCompleted } = useContext(CompletedTasks);
     const { choiceIsActiveValue, dispatchChoice } = useContext(ChoiceIsActiveContext);
 
     const onClickChoiceButton = () => {
@@ -16,6 +19,11 @@ export const TaskToolBar = ({ checkedId }) => {
 
     const onClickCompletedButton = () => {
         dispatchTask({ type: 'MASS_COMPLETED_TASKS', payload: checkedId });
+        const completedTaskList = returnCompletedTaskList(taskListValue, checkedId);
+        dispatchCompleted({
+            type: 'MASS_ADD_COMPLETED_TASKS',
+            payload: completedTaskList,
+        });
     };
 
     return (

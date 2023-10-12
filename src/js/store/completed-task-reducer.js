@@ -6,6 +6,10 @@ export const completedTaskReducer = (state, action) => {
         case 'ADD_NEW_TASK':
             localStorage.setItem('completed-task-list', JSON.stringify([{ ...payload, isDone: true }, ...state]));
             return [{ ...payload, isDone: true }, ...state];
+
+        case 'MASS_ADD_COMPLETED_TASKS':
+            localStorage.setItem('completed-task-list', JSON.stringify([...payload, ...state]));
+            return [...payload, ...state];
         case 'RETURN_TASK':
             const updateTaskList = state.filter(({ id }) => id !== payload);
             localStorage.setItem('completed-task-list', JSON.stringify(updateTaskList));

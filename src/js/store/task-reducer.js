@@ -11,8 +11,7 @@ export const taskReducer = (state, action) => {
             for (let i = 0; i < payload.length; i++) {
                 newCompletedTaskList = newCompletedTaskList.filter(({ id: checkedId }) => checkedId !== payload[i]);
             }
-
-            console.log(newCompletedTaskList);
+            localStorage.setItem('task-list', JSON.stringify(newCompletedTaskList));
             return newCompletedTaskList;
 
         case 'COMPLETED_TASK':
