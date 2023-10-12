@@ -1,27 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { Header, Main, SideBar } from './components';
 import { WrapperContext } from './context/WrapperContext';
+import { taskReducer } from './store/task-reducer';
 
 export const App = () => {
-    const [taskList, setTaskList] = useState([]);
+    const [taskList, dispatch] = useReducer(taskReducer, []);
 
 
     useEffect(() => {
-        setTaskList(localStorage.getItem('task-list'));
+        let taskList = localStorage.getItem('task-list');
+        console.log(taskList);
+        dispatch({ action: 'SET_TASK_LIST', payload: taskList });
     }, []);
 
-
-    const dispatch = (action) => {
-        const { type, payload } = action;
-
-        switch (type) {
-            case 'ADD_NEW_TASK':
-                setTaskList([payload, ...taskList]);
-                break;
-            default:
-
-        }
-    };
 
     return (
         <WrapperContext taskListValue={taskList} choiceIsActiveValue={'choiceIsActiveValue'} dispatch={dispatch}>
@@ -30,7 +21,6 @@ export const App = () => {
                 <SideBar />
                 <Main />
             </div>
-
         </WrapperContext>
     );
 };
