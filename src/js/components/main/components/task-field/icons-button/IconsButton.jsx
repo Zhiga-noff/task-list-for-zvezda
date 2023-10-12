@@ -20,7 +20,7 @@ export const IconsButton = ({ itemData }) => {
 
     const returnToTaskList = () => {
         dispatchTask({ type: 'ADD_NEW_TASK', payload: itemData });
-        dispatchCompleted({ type: 'RETURN_TASK', payload: itemData });
+        dispatchCompleted({ type: 'RETURN_TASK', payload: itemData.id });
     };
 
 
