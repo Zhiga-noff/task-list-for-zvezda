@@ -34,8 +34,55 @@ body {
 
 .button {
     @extend %button;
+
+    &:disabled {
+        opacity: 0.6 !important;
+
+        &:hover {
+
+            }
+        }
     }
 
+.button-turquoise {
+    background-color: $turquoise;
+    border: 3px solid $turquoise;
+
+    &:hover {
+        background-color: $turquoiseD;
+        border: 3px solid $turquoiseD;
+        }
+    }
+
+.button-orange {
+    background-color: $orange;
+    border: 3px solid $orange;
+
+    &:hover {
+        background-color: $orangeD;
+        border: 3px solid $orangeD;
+        }
+    }
+
+.button-blue {
+    background-color: $blue;
+    border: 3px solid $blue;
+
+    &:hover {
+        background-color: $blueD;
+        border: 3px solid $blueD;
+        }
+    }
+
+.button-red {
+    background-color: $red;
+    border: 3px solid $red;
+
+    &:hover {
+        background-color: $redD;
+        border: 3px solid $redD;
+        }
+    }
 
 
 

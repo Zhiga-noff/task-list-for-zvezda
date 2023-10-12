@@ -1,17 +1,31 @@
 $turquoise: #78E2D1;
+$turquoiseD: #5BCBB9;
+
+
 $orange: #FF9E35;
+$orangeD: #E28C2F;
+
+
 $blue: #7FCAF6;
+$blueD: #60B3E3;
+
+
 $red: #FF3C3D;
+$redD: #D2292A;
+
+
 $grey: #D6D6D6;
 
 %button {
-    font-size: 1.25rem;
-    padding: 1rem 3rem;
-    font-weight: 600;
-    cursor: pointer !important;
+    padding: 14px 20px;
+
+    display: block;
+
+    font-weight: 700;
+    color: white;
+    border-radius: 40px;
+
+    transition-duration: 0.2s;
     }
 
-%text {
-    font-size: 1rem;
-    line-height: 1.375rem;
-    }
+
