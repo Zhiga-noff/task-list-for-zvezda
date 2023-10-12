@@ -3,6 +3,5 @@ export const returnNewTaskObject = (value) => {
         id: Math.random(),
         title: value,
         isDone: false,
-        isChecked: false,
     };
 };
