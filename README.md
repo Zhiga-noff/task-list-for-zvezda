@@ -1,1 +1,1 @@
-# task-list-for-zvezda
+# TASKS FOR ZVEZDA
