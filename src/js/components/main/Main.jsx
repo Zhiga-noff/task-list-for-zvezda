@@ -16,14 +16,17 @@ export const Main = () => {
             <div className={style.container}>
                 <TaskToolBar checkedId={checkedId} />
                 <ul className={style.taskList}>
-                    {taskList.map((item, index) => <TaskField key={item?.id} itemData={item} index={index}
-                                                              setCheckedId={setCheckedId}
-                    />)}
+                    {taskList.length ? taskList.map((item, index) => <TaskField key={item?.id} itemData={item}
+                                                                                index={index}
+                                                                                setCheckedId={setCheckedId}
+                    />) : <p className={style.stub}>Добавтье задачу</p>}
                 </ul>
                 <div className={style.lineGrey} />
                 <ul className={style.taskList}>
-                    {completedList.map((item, index) => <TaskField key={item?.id} itemData={item} index={index}
-                                                                   setCheckedId={setCheckedId} />)}
+                    {completedList.length ? completedList.map((item, index) => <TaskField key={item?.id} itemData={item}
+                                                                                          index={index}
+                                                                                          setCheckedId={setCheckedId} />) :
+                        <p className={style.stub}>Нет завершенных задач</p>}
                 </ul>
             </div>
 

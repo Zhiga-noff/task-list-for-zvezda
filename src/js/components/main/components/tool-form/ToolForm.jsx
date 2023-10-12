@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { TaskListContext } from '../../../../context/TaskListContext';
 import { returnNewTaskObject } from '../../../../utils';
+import style from '../../../../../scss/modules/main/TaskToolBar.module.scss';
 
 export const ToolForm = () => {
     const [valueNewTask, setValueNewTask] = useState('');
@@ -27,7 +28,8 @@ export const ToolForm = () => {
 
     return (
         <form action='#' onSubmit={onSubmitForm}>
-            <input type='text' value={valueNewTask} placeholder={'Новая задача'} onChange={onChangeNewTask} />
+            <input type='text' className={disabledButtonAdd ? style.error : ''} value={valueNewTask}
+                   placeholder={'Новая задача'} onChange={onChangeNewTask} />
             <button className={'button button-turquoise'} type={'submit'} disabled={disabledButtonAdd}>Добавить +
             </button>
         </form>
