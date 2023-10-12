@@ -9,9 +9,7 @@ export const Main = () => {
             <div className={style.container}>
                 <TaskToolBar />
                 <ul className={style.taskList}>
-
                     <TaskField />
-
                 </ul>
             </div>
 
