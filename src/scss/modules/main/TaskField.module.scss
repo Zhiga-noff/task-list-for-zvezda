@@ -7,6 +7,10 @@
     align-items: center;
 
     font-weight: 700;
+
+    & input {
+        margin-right: 30px;
+        }
     }
 
 .completedTask {

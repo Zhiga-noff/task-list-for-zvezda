@@ -3,11 +3,14 @@ import style from '../../../../../scss/modules/main/TaskToolBar.module.scss';
 import { ToolForm } from '../tool-form/ToolForm';
 import { SectionLeftToolAndTask } from '../section-left/SectionLeftToolAndTask';
 import { ChoiceIsActiveContext } from '../../../../context/ChoiceIsActiveContext';
-import { TaskListContext } from '../../../../context/TaskListContext';
 
 export const TaskToolBar = () => {
 
-    const { choiceIsActive } = useContext(ChoiceIsActiveContext);
+    const { choiceIsActiveValue, dispatchChoice } = useContext(ChoiceIsActiveContext);
+
+    const onClickChoiceButton = () => {
+        dispatchChoice({ type: 'REVERS_CHOICE_FLAG' });
+    };
 
     return (
         <div className={style.taskToolBar}>
@@ -15,9 +18,10 @@ export const TaskToolBar = () => {
             <SectionLeftToolAndTask><ToolForm /></SectionLeftToolAndTask>
 
             <div className={style.section}>
-                <button className={`${style.button} button button-orange`}
-                >{choiceIsActive ? 'Отменить выбор' : 'Выбрать задачи'}</button>
-                <button className={`${style.button} button button-blue`} disabled={!choiceIsActive}>Завершить</button>
+                <button className={`${style.button} button button-orange`} onClick={onClickChoiceButton}
+                >{choiceIsActiveValue ? 'Отменить выбор' : 'Выбрать задачи'}</button>
+                <button className={`${style.button} button button-blue`} disabled={!choiceIsActiveValue}>Завершить
+                </button>
             </div>
         </div>
     );
