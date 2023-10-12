@@ -12,7 +12,9 @@ export const TaskToolBar = () => {
 
     return (
         <div className={style.taskToolBar}>
-            <SectionLeftToolAndTask choiceIsActive={choiceIsActive}><TaskToolBar /></SectionLeftToolAndTask>
+            <div className={style.section}>
+                <SectionLeftToolAndTask choiceIsActive={choiceIsActive}><ToolForm /></SectionLeftToolAndTask>
+            </div>
 
             <div className={style.section}>
                 <button className={`${style.button} button button-orange`}
