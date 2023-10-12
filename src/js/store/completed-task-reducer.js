@@ -50,7 +50,7 @@ export const completedTaskReducer = (state, action) => {
 
                 return item;
             });
-            // localStorage.setItem('completed-task-list', JSON.stringify(moveUpList));
+            localStorage.setItem('completed-task-list', JSON.stringify(moveDownList));
             return moveDownList;
 
         case 'SET_TASK_LIST':
