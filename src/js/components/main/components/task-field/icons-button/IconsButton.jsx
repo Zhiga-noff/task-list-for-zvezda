@@ -18,6 +18,11 @@ export const IconsButton = ({ itemData }) => {
         dispatchCompleted({ type: 'ADD_NEW_TASK', payload: itemData });
     };
 
+    const returnToTaskList = () => {
+        dispatchTask({ type: 'ADD_NEW_TASK', payload: itemData });
+        dispatchCompleted({ type: 'RETURN_TASK', payload: itemData });
+    };
+
 
     return (
         <div>
@@ -25,7 +30,8 @@ export const IconsButton = ({ itemData }) => {
                 itemData.isDone ? <>
                     <button className={style.button}><img src={upImage} alt='' /></button>
                     <button className={style.button}><img src={downImage} alt='' /></button>
-                    <button className={style.button}><img src={returnImage} alt='' /></button>
+                    <button className={style.button} onClick={returnToTaskList}><img src={returnImage} alt='' />
+                    </button>
 
                 </> : <button className={style.button} onClick={completedTaskOnClick
                 }><img src={doneImage} alt='' /></button>
