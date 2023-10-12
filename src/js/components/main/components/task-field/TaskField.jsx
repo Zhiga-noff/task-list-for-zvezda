@@ -36,7 +36,7 @@ export const TaskField = ({ itemData, index, setCheckedId }) => {
 
                 {itemData.title}
             </label>
-            {isHovered ? <IconsButton itemData={itemData} index={index} /> : <></>}
+            {isHovered ? <IconsButton itemData={itemData} index={index} /> : <div className={style.stub}></div>}
 
 
         </li>

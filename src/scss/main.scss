@@ -6,10 +6,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,900&display=swap');
 
+html {
+    font-size: calc(12px + (12 - 12) * ((100vw - 320px) / (1440 - 320)));
+    //overflow-x: hidden;
+    @media screen and (max-width: 1600px) {
+        font-size: calc(12px + (12 - 12) * ((100vw - 320px) / (768 - 320)));
+        }
+    }
 
 //Стиль текста для всего сайта
 body {
     font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
     color: #000;
     overflow-x: hidden !important;
     position: relative;

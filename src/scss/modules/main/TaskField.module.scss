@@ -1,6 +1,6 @@
 .task {
-    margin-bottom: 15px;
-    font-size: 32px;
+    margin-bottom: 1rem;
+    font-size: 2rem;
 
     display: flex;
     justify-content: space-between;
@@ -9,7 +9,7 @@
     font-weight: 700;
 
     & input {
-        margin-right: 30px;
+        margin-right: 1rem;
         }
     }
 
@@ -20,5 +20,10 @@
     }
 
 .button {
-    margin-right: 15px;
+    margin-right: 1rem;
+    }
+
+.stub {
+    width: 27px;
+    height: 27px;
     }

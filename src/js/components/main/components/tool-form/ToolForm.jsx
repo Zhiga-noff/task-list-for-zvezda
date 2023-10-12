@@ -4,15 +4,21 @@ import { returnNewTaskObject } from '../../../../utils';
 
 export const ToolForm = () => {
     const [valueNewTask, setValueNewTask] = useState('');
+    const [disabledButtonAdd, setDisabledButtonAdd] = useState(false);
     const { dispatchTask } = useContext(TaskListContext);
 
 
     const onChangeNewTask = ({ target }) => {
         setValueNewTask(target.value);
+        setDisabledButtonAdd(false);
     };
 
     const onSubmitForm = (event) => {
         event.preventDefault();
+        if (!valueNewTask) {
+            setDisabledButtonAdd(true);
+            return;
+        }
         let newTask = returnNewTaskObject(valueNewTask);
         dispatchTask({ type: 'ADD_NEW_TASK', payload: newTask });
 
@@ -22,7 +28,8 @@ export const ToolForm = () => {
     return (
         <form action='#' onSubmit={onSubmitForm}>
             <input type='text' value={valueNewTask} placeholder={'Новая задача'} onChange={onChangeNewTask} />
-            <button className={'button button-turquoise'} type={'submit'}>Добавить +</button>
+            <button className={'button button-turquoise'} type={'submit'} disabled={disabledButtonAdd}>Добавить +
+            </button>
         </form>
     );
 };

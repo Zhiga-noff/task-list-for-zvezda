@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import style from '../../../../../scss/modules/main/TaskToolBar.module.scss';
 import { ToolForm } from '../tool-form/ToolForm';
-import { SectionLeftToolAndTask } from '../section-left/SectionLeftToolAndTask';
 import { ChoiceIsActiveContext } from '../../../../context/ChoiceIsActiveContext';
 import { TaskListContext } from '../../../../context/TaskListContext';
 import { CompletedTasks } from '../../../../context/CompletedTasks';
@@ -28,8 +27,10 @@ export const TaskToolBar = ({ checkedId }) => {
 
     return (
         <div className={style.taskToolBar}>
-
-            <SectionLeftToolAndTask><ToolForm /></SectionLeftToolAndTask>
+            <div className={style.section}>
+                <div className={style.checkboxContainer}>{choiceIsActiveValue ? <></> : ''}</div>
+                <ToolForm />
+            </div>
 
             <div className={style.section}>
                 <button className={`${style.button} button button-orange`} onClick={onClickChoiceButton}

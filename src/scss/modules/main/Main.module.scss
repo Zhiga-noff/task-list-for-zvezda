@@ -3,12 +3,12 @@
 .main {
     width: 100%;
     max-height: 100%;
-    padding: 100px;
+    padding: 6.25rem;
     }
 
 .line {
     width: 100%;
-    height: 5px;
+    height: 0.25rem;
     background-color: $turquoise;
 
     position: relative;
@@ -16,7 +16,7 @@
     }
 
 .lineGrey {
-    margin: 30px auto;
+    margin: 2rem auto;
     height: 1px;
     width: 70%;
 
@@ -30,5 +30,5 @@
     }
 
 .taskList {
-    padding: 20px 15px;
+    padding: 1.25rem 1rem;
     }
