@@ -11,7 +11,6 @@ export const Main = () => {
             <div className={style.container}>
                 <TaskToolBar />
                 <ul className={style.taskList}>
-                    {/*{taskList}*/}
                     {taskList.map((item) => <TaskField key={item?.id} itemData={item} />)}
                 </ul>
             </div>

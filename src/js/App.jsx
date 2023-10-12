@@ -5,18 +5,16 @@ import { choiceIsActiveReducer, taskReducer } from './store';
 
 export const App = () => {
     const [taskList, dispatchTask] = useReducer(taskReducer, []);
-    const [dispatchChoice] = useReducer(choiceIsActiveReducer, []);
+    const [choiceIsActiveValue, dispatchChoice] = useReducer(choiceIsActiveReducer, false);
 
 
     useEffect(() => {
-        let taskList = localStorage.getItem('task-list');
-        console.log(taskList);
-        dispatchTask({ action: 'SET_TASK_LIST', payload: taskList });
+        dispatchTask({ type: 'SET_TASK_LIST' });
     }, []);
 
 
     return (
-        <WrapperContext taskListValue={taskList} choiceIsActiveValue={'choiceIsActiveValue'} dispatchTask={dispatchTask}
+        <WrapperContext taskListValue={taskList} choiceIsActiveValue={choiceIsActiveValue} dispatchTask={dispatchTask}
                         dispatchChoice={dispatchChoice}>
             <Header />
             <div className='container'>
