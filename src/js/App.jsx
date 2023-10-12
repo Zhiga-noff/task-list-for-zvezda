@@ -1,9 +1,15 @@
 import React from 'react';
+import { Header, Main, SideBar } from './components';
 
 export const App = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <Header />
+            <div className='container'>
+                <SideBar />
+                <Main />
+            </div>
+
+        </>
     );
 };
