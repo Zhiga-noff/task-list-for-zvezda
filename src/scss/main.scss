@@ -36,21 +36,6 @@ body {
     @extend %button;
     }
 
-.button-cyan {
-    @extend %buttonCyan;
-
-    &:hover {
-        @extend %hoverButton;
-        }
-    }
-
-.button-stroke {
-    @extend %buttonWhiteStoke;
-
-    &:hover {
-        @extend %hoverButton;
-        }
-    }
 
 
 

@@ -5,7 +5,9 @@ export const Main = () => {
     return (
         <main className={style.main}>
             <div className={style.line} />
-            <div className={style.container}></div>
+            <div className={style.container}>
+
+            </div>
 
         </main>
     );
