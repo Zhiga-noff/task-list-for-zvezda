@@ -1,32 +1,31 @@
-@import "../../colors";
+@import '../../colors';
 
 .task {
-    margin-bottom: 1rem;
-    font-size: 2rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    font-weight: 700;
+  font-weight: 700;
 
-    & input {
-        margin-right: 1rem;
-        }
-    }
+  & input {
+    margin-right: 1rem;
+  }
+}
 
 .completedTask {
-    color: rgb(0, 0, 0, 0.5);
-    text-decoration: line-through;
-    font-weight: 400;
-    }
+  color: rgb(0, 0, 0, 0.5);
+  text-decoration: line-through;
+  font-weight: 400;
+}
 
 .button {
-    margin-right: 1rem;
-    }
+  margin-right: 1rem;
+}
 
 .stub {
-    width: 2.6rem;
-    height: 2.6rem;
-    }
-
+  width: 2.6rem;
+  height: 2.6rem;
+}

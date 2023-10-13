@@ -1,31 +1,25 @@
-$turquoise: #78E2D1;
-$turquoiseD: #5BCBB9;
+$turquoise: #78e2d1;
+$turquoiseD: #5bcbb9;
 
+$orange: #ff9e35;
+$orangeD: #e28c2f;
 
-$orange: #FF9E35;
-$orangeD: #E28C2F;
+$blue: #7fcaf6;
+$blueD: #60b3e3;
 
+$red: #ff3c3d;
+$redD: #d2292a;
 
-$blue: #7FCAF6;
-$blueD: #60B3E3;
-
-
-$red: #FF3C3D;
-$redD: #D2292A;
-
-
-$grey: #D6D6D6;
+$grey: #d6d6d6;
 
 %button {
-    padding: 1rem 1.25rem;
+  padding: 1rem 1.25rem;
 
-    display: block;
+  display: block;
 
-    font-weight: 700;
-    color: white;
-    border-radius: 2.5rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 2.5rem;
 
-    transition-duration: 0.2s;
-    }
-
-
+  transition-duration: 0.2s;
+}

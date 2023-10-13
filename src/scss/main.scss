@@ -7,90 +7,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,900&display=swap');
 
 html {
-    font-size: calc(12px + (12 - 12) * ((100vw - 320px) / (1440 - 320)));
-    //overflow-x: hidden;
-    @media screen and (max-width: 1600px) {
-        font-size: calc(12px + (12 - 12) * ((100vw - 320px) / (768 - 320)));
-        }
-    }
+  font-size: calc(12px + (12 - 12) * ((100vw - 320px) / (1440 - 320)));
+  //overflow-x: hidden;
+  @media screen and (max-width: 1600px) {
+    font-size: calc(12px + (12 - 12) * ((100vw - 320px) / (768 - 320)));
+  }
+}
 
 //Стиль текста для всего сайта
 body {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 1rem;
-    color: #000;
-    overflow-x: hidden !important;
-    position: relative;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  color: #000;
+  overflow-x: hidden !important;
+  position: relative;
 
-    background-color: #EDF0F5;
-
-
-    }
+  background-color: #edf0f5;
+}
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-
-    }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
 .container {
-    display: flex;
-    align-items: stretch;
-    height: 100%;
-    }
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
 
 .button {
-    @extend %button;
+  @extend %button;
 
-    &:disabled {
-        opacity: 0.6 !important;
+  &:disabled {
+    opacity: 0.6 !important;
 
-        &:hover {
-
-            }
-        }
+    &:hover {
     }
+  }
+}
 
 .button-turquoise {
-    background-color: $turquoise;
-    border: 3px solid $turquoise;
+  background-color: $turquoise;
+  border: 3px solid $turquoise;
 
-    &:hover {
-        background-color: $turquoiseD;
-        border: 3px solid $turquoiseD;
-        }
-    }
+  &:hover {
+    background-color: $turquoiseD;
+    border: 3px solid $turquoiseD;
+  }
+}
 
 .button-orange {
-    background-color: $orange;
-    border: 3px solid $orange;
+  background-color: $orange;
+  border: 3px solid $orange;
 
-    &:hover {
-        background-color: $orangeD;
-        border: 3px solid $orangeD;
-        }
-    }
+  &:hover {
+    background-color: $orangeD;
+    border: 3px solid $orangeD;
+  }
+}
 
 .button-blue {
-    background-color: $blue;
-    border: 3px solid $blue;
+  background-color: $blue;
+  border: 3px solid $blue;
 
-    &:hover {
-        background-color: $blueD;
-        border: 3px solid $blueD;
-        }
-    }
+  &:hover {
+    background-color: $blueD;
+    border: 3px solid $blueD;
+  }
+}
 
 .button-red {
-    background-color: $red;
-    border: 3px solid $red;
+  background-color: $red;
+  border: 3px solid $red;
 
-    &:hover {
-        background-color: $redD;
-        border: 3px solid $redD;
-        }
-    }
-
-
-
+  &:hover {
+    background-color: $redD;
+    border: 3px solid $redD;
+  }
+}

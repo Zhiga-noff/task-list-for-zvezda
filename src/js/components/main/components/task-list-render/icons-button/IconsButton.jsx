@@ -25,7 +25,7 @@ export const IconsButton = ({ itemData, index }) => {
   };
 
   const moveCompleteTask = (type) => {
-    dispatchCompleted({
+    dispatchTask({
       type: type,
       payload: index,
     });
@@ -37,13 +37,13 @@ export const IconsButton = ({ itemData, index }) => {
         <>
           <button
             className={style.button}
-            onClick={() => moveCompleteTask(completeType.MOVE_UP_COMPLETED_TASK)}
+            onClick={() => moveCompleteTask(taskListType.MOVE_UP_COMPLETED_TASK)}
           >
             <img src={upImage} alt="" />
           </button>
           <button
             className={style.button}
-            onClick={() => moveCompleteTask(completeType.MOVE_DOWN_COMPLETED_TASK)}
+            onClick={() => moveCompleteTask(taskListType.MOVE_DOWN_COMPLETED_TASK)}
           >
             <img src={downImage} alt="" />
           </button>
