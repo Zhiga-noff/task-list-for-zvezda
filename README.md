@@ -20,11 +20,11 @@ npm install
 ### Запуск в режиме разработки
 
 ```bash
-ng serve
+npm run dev
  ```
 
 ### Продакшн сборка проекта
 
 ```bash
-ng build
+npm run build
  ```
